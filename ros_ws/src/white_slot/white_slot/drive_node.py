@@ -63,6 +63,7 @@ class Drive_node(Node):
 
         linear_vel = msg.linear.y   # forward/backward
         angular_vel = msg.angular.z # turning rate
+        angular_vel = angular_vel * 5
 
         # Compute left and right wheel speeds (in m/s)
         v_left = linear_vel - (angular_vel * self.wheel_base / 2.0)

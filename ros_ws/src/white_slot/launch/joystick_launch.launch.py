@@ -39,10 +39,18 @@ def generate_launch_description():
         name="Drive_Node",
         namespace="",
     )
+
+    node_microros_1 = Node(
+        package="micro_ros_agent",
+        executable="micro_ros_agent",
+        output="screen",
+        arguments=["serial", "--dev", "/dev/ttyUSB0"],
+    )
     
     
     ld.add_action(joy)
     ld.add_action(joystick_control)
+    ld.add_action(node_microros_1)
     ld.add_action(drive_node)
 
 
