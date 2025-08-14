@@ -1,6 +1,6 @@
 #include <Arduino.h>
 #include <Wire.h>
-#include <SPI.h>
+// #include <SPI.h>
 #include <cmath>
 
 #include <micro_ros_platformio.h>
