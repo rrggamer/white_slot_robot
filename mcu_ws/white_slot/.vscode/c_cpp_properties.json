@@ -10,9 +10,6 @@
             "includePath": [
                 "/home/papa/white_slot_robot/mcu_ws/white_slot/include",
                 "/home/papa/white_slot_robot/mcu_ws/white_slot/src",
-                "/home/papa/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src",
-                "/home/papa/.platformio/packages/framework-arduinoespressif32/libraries/SPI/src",
-                "/home/papa/white_slot_robot/mcu_ws/white_slot/.pio/libdeps/esp32dev/micro_ros_platformio/platform_code/arduino",
                 "/home/papa/white_slot_robot/mcu_ws/white_slot/.pio/libdeps/esp32dev/micro_ros_platformio",
                 "/home/papa/white_slot_robot/mcu_ws/white_slot/.pio/libdeps/esp32dev/micro_ros_platformio/libmicroros/include",
                 "/home/papa/white_slot_robot/mcu_ws/white_slot/.pio/libdeps/esp32dev/micro_ros_platformio/platform_code",
@@ -235,6 +232,7 @@
                 "/home/papa/.platformio/packages/framework-arduinoespressif32/libraries/RainMaker/src",
                 "/home/papa/.platformio/packages/framework-arduinoespressif32/libraries/SD/src",
                 "/home/papa/.platformio/packages/framework-arduinoespressif32/libraries/SD_MMC/src",
+                "/home/papa/.platformio/packages/framework-arduinoespressif32/libraries/SPI/src",
                 "/home/papa/.platformio/packages/framework-arduinoespressif32/libraries/SPIFFS/src",
                 "/home/papa/.platformio/packages/framework-arduinoespressif32/libraries/SimpleBLE/src",
                 "/home/papa/.platformio/packages/framework-arduinoespressif32/libraries/Ticker/src",
@@ -244,6 +242,7 @@
                 "/home/papa/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src",
                 "/home/papa/.platformio/packages/framework-arduinoespressif32/libraries/WiFiClientSecure/src",
                 "/home/papa/.platformio/packages/framework-arduinoespressif32/libraries/WiFiProv/src",
+                "/home/papa/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src",
                 ""
             ],
             "browse": {
@@ -251,9 +250,6 @@
                 "path": [
                     "/home/papa/white_slot_robot/mcu_ws/white_slot/include",
                     "/home/papa/white_slot_robot/mcu_ws/white_slot/src",
-                    "/home/papa/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src",
-                    "/home/papa/.platformio/packages/framework-arduinoespressif32/libraries/SPI/src",
-                    "/home/papa/white_slot_robot/mcu_ws/white_slot/.pio/libdeps/esp32dev/micro_ros_platformio/platform_code/arduino",
                     "/home/papa/white_slot_robot/mcu_ws/white_slot/.pio/libdeps/esp32dev/micro_ros_platformio",
                     "/home/papa/white_slot_robot/mcu_ws/white_slot/.pio/libdeps/esp32dev/micro_ros_platformio/libmicroros/include",
                     "/home/papa/white_slot_robot/mcu_ws/white_slot/.pio/libdeps/esp32dev/micro_ros_platformio/platform_code",
@@ -476,6 +472,7 @@
                     "/home/papa/.platformio/packages/framework-arduinoespressif32/libraries/RainMaker/src",
                     "/home/papa/.platformio/packages/framework-arduinoespressif32/libraries/SD/src",
                     "/home/papa/.platformio/packages/framework-arduinoespressif32/libraries/SD_MMC/src",
+                    "/home/papa/.platformio/packages/framework-arduinoespressif32/libraries/SPI/src",
                     "/home/papa/.platformio/packages/framework-arduinoespressif32/libraries/SPIFFS/src",
                     "/home/papa/.platformio/packages/framework-arduinoespressif32/libraries/SimpleBLE/src",
                     "/home/papa/.platformio/packages/framework-arduinoespressif32/libraries/Ticker/src",
@@ -485,6 +482,7 @@
                     "/home/papa/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src",
                     "/home/papa/.platformio/packages/framework-arduinoespressif32/libraries/WiFiClientSecure/src",
                     "/home/papa/.platformio/packages/framework-arduinoespressif32/libraries/WiFiProv/src",
+                    "/home/papa/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src",
                     ""
                 ]
             },
