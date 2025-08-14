@@ -39,5 +39,12 @@ def generate_launch_description():
             'publish_map': True
         }]
     )
+    
+    odom_tf_node = Node(
+    package='tf2_ros',
+    executable='static_transform_publisher',
+    name='static_tf_pub_odom',
+    arguments=['0', '0', '0', '0', '0', '0', '1', 'odom', 'base_link']
+)
 
-    return LaunchDescription([lidar_node, tf_node, slam_node])
+    return LaunchDescription([lidar_node, tf_node, slam_node,odom_tf_node])

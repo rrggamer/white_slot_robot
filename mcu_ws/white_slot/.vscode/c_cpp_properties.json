@@ -10,6 +10,12 @@
             "includePath": [
                 "/home/papa/white_slot_robot/mcu_ws/white_slot/include",
                 "/home/papa/white_slot_robot/mcu_ws/white_slot/src",
+                "/home/papa/white_slot_robot/mcu_ws/white_slot/.pio/libdeps/esp32dev/Adafruit BNO055",
+                "/home/papa/white_slot_robot/mcu_ws/white_slot/.pio/libdeps/esp32dev/Adafruit BNO055/utility",
+                "/home/papa/white_slot_robot/mcu_ws/white_slot/.pio/libdeps/esp32dev/Adafruit Unified Sensor",
+                "/home/papa/white_slot_robot/mcu_ws/white_slot/.pio/libdeps/esp32dev/Adafruit BusIO",
+                "/home/papa/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src",
+                "/home/papa/white_slot_robot/mcu_ws/white_slot/.pio/libdeps/esp32dev/micro_ros_platformio/platform_code/arduino",
                 "/home/papa/white_slot_robot/mcu_ws/white_slot/.pio/libdeps/esp32dev/micro_ros_platformio",
                 "/home/papa/white_slot_robot/mcu_ws/white_slot/.pio/libdeps/esp32dev/micro_ros_platformio/libmicroros/include",
                 "/home/papa/white_slot_robot/mcu_ws/white_slot/.pio/libdeps/esp32dev/micro_ros_platformio/platform_code",
@@ -242,7 +248,6 @@
                 "/home/papa/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src",
                 "/home/papa/.platformio/packages/framework-arduinoespressif32/libraries/WiFiClientSecure/src",
                 "/home/papa/.platformio/packages/framework-arduinoespressif32/libraries/WiFiProv/src",
-                "/home/papa/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src",
                 ""
             ],
             "browse": {
@@ -250,6 +255,12 @@
                 "path": [
                     "/home/papa/white_slot_robot/mcu_ws/white_slot/include",
                     "/home/papa/white_slot_robot/mcu_ws/white_slot/src",
+                    "/home/papa/white_slot_robot/mcu_ws/white_slot/.pio/libdeps/esp32dev/Adafruit BNO055",
+                    "/home/papa/white_slot_robot/mcu_ws/white_slot/.pio/libdeps/esp32dev/Adafruit BNO055/utility",
+                    "/home/papa/white_slot_robot/mcu_ws/white_slot/.pio/libdeps/esp32dev/Adafruit Unified Sensor",
+                    "/home/papa/white_slot_robot/mcu_ws/white_slot/.pio/libdeps/esp32dev/Adafruit BusIO",
+                    "/home/papa/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src",
+                    "/home/papa/white_slot_robot/mcu_ws/white_slot/.pio/libdeps/esp32dev/micro_ros_platformio/platform_code/arduino",
                     "/home/papa/white_slot_robot/mcu_ws/white_slot/.pio/libdeps/esp32dev/micro_ros_platformio",
                     "/home/papa/white_slot_robot/mcu_ws/white_slot/.pio/libdeps/esp32dev/micro_ros_platformio/libmicroros/include",
                     "/home/papa/white_slot_robot/mcu_ws/white_slot/.pio/libdeps/esp32dev/micro_ros_platformio/platform_code",
@@ -482,7 +493,6 @@
                     "/home/papa/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src",
                     "/home/papa/.platformio/packages/framework-arduinoespressif32/libraries/WiFiClientSecure/src",
                     "/home/papa/.platformio/packages/framework-arduinoespressif32/libraries/WiFiProv/src",
-                    "/home/papa/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src",
                     ""
                 ]
             },
