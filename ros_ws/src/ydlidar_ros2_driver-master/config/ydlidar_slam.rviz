@@ -1,34 +1,21 @@
 Panels:
-  - Class: rviz_default_plugins/Displays
+  - Class: rviz/Displays
     Name: Displays
     SplitterRatio: 0.5
     SavedDisplayGroups:
-      - Class: rviz_default_plugins/Displays
+      - Class: rviz/Map
         Name: Map
         Enabled: true
-        Class: rviz_default_plugins/Map
         Topic: /map
         Queue Size: 10
-        Color Scheme: map
-      - Class: rviz_default_plugins/LaserScan
+      - Class: rviz/LaserScan
         Name: LaserScan
         Enabled: true
         Topic: /scan
         Queue Size: 10
-        Size (m): 0.1
-        Color: 255;0;0
-      - Class: rviz_default_plugins/TF
+      - Class: rviz/TF
         Name: TF
         Enabled: true
-  - Class: rviz_default_plugins/Views
+  - Class: rviz/Views
     Name: Views
-    SavedViewGroups:
-      - Class: rviz_default_plugins/Orbit
-        Focal Point:
-          X: 0.0
-          Y: 0.0
-          Z: 0.0
-        Distance: 5.0
-        Pitch: 0.785
-        Yaw: 0.785
 Fixed Frame: map
