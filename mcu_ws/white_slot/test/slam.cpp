@@ -258,7 +258,7 @@ bool createEntities()
         &motor_subscriber,
         &node,
         ROSIDL_GET_MSG_TYPE_SUPPORT(geometry_msgs, msg, Twist),
-        "/white_slot/cmd_move/rpm"));
+        "/cmd_vel"));
 
 
 

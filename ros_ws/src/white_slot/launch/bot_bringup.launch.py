@@ -43,12 +43,23 @@ def generate_launch_description():
             )
         ])
     )
+
+    slam_launch_ver2 = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([
+            os.path.join(
+                get_package_share_directory('ydlidar_ros2_driver'),
+                'launch',
+                'slam_ver2.launch.py'
+            )
+        ])
+    )
     
 
-    ld.add_action(node_microros_1)
+    # ld.add_action(node_microros_1)
     # ld.add_action(odom_node)
     ld.add_action(no_imu_odom_node)
     ld.add_action(slam_launch)
+    # ld.add_action(slam_launch_ver2)
 
 
 

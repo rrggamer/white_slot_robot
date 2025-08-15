@@ -48,10 +48,10 @@ def generate_launch_description():
     )
     
     
-    ld.add_action(joy)
-    ld.add_action(joystick_control)
+    # ld.add_action(joy)
+    # ld.add_action(joystick_control)
     ld.add_action(node_microros_1)
-    ld.add_action(drive_node)
+    # ld.add_action(drive_node)
 
 
     return ld
