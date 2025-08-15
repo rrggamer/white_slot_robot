@@ -47,7 +47,18 @@ def generate_launch_description():
                 'odom_frame': 'odom',
                 'base_frame': 'base_link',
                 'map_frame': 'map',
-                'scan_topic': '/scan'
+                'scan_topic': '/scan',
+
+                # Mapping-specific parameters
+                'slam_mode': 'mapper',             # enable mapping
+                'map_publish_period': 1.0,     # publish map every 1 second
+                'map_update_interval': 0.2,    # map update interval
+                'laser_queue_size': 50,        # prevent dropped messages
+                'max_laser_range': 10.0,
+                'min_laser_range': 0.1,
+                'optimize_every_n_nodes': 5,
+                'publish_tf': True,
+                'use_scan_matching': True
             }],
             output='screen'
         )
