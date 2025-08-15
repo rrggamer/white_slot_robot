@@ -16,11 +16,39 @@ def generate_launch_description():
         package="micro_ros_agent",
         executable="micro_ros_agent",
         output="screen",
-        arguments=["serial", "--dev", "/dev/ttyUSB0"],
+        arguments=["serial", "--dev", "/dev/ttyUSB1"],
+    )
+
+    odom_node = Node(
+        package="white_slot",
+        executable="odom_node",
+        output="screen",
+        
+    )
+
+    no_imu_odom_node = Node(
+        package="white_slot",
+        executable="no_imu_odom_node",
+        output="screen",
+        
+    )
+
+        
+    slam_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([
+            os.path.join(
+                get_package_share_directory('ydlidar_ros2_driver'),
+                'launch',
+                'slam.launch.py'
+            )
+        ])
     )
     
 
     ld.add_action(node_microros_1)
+    # ld.add_action(odom_node)
+    ld.add_action(no_imu_odom_node)
+    ld.add_action(slam_launch)
 
 
 

@@ -112,7 +112,7 @@ int main(int argc, char *argv[])
             auto scan_msg = std::make_shared<sensor_msgs::msg::LaserScan>();
             scan_msg->header.stamp.sec = RCL_NS_TO_S(scan.stamp);
             scan_msg->header.stamp.nanosec = scan.stamp - RCL_S_TO_NS(scan_msg->header.stamp.sec);
-            scan_msg->header.frame_id = "laser";
+            scan_msg->header.frame_id = "laser_frame";
             scan_msg->angle_min = scan.config.min_angle;
             scan_msg->angle_max = scan.config.max_angle;
             scan_msg->angle_increment = scan.config.angle_increment;

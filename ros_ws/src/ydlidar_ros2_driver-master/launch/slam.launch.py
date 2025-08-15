@@ -1,50 +1,54 @@
 from launch import LaunchDescription
 from launch_ros.actions import Node
-from ament_index_python.packages import get_package_share_directory
-import os
 
 def generate_launch_description():
-    # YDLidar driver
-    lidar_node = Node(
-        package='ydlidar_ros2_driver',
-        executable='ydlidar_ros2_driver_node',
-        name='ydlidar_ros2_driver_node',
-        output='screen',
-        parameters=[os.path.join(get_package_share_directory('ydlidar_ros2_driver'),
-                                 'params', 'ydlidar_x3.yaml')]
-    )
+    return LaunchDescription([
+        # LiDAR driver
+        Node(
+            package='ydlidar_ros2_driver',
+            executable='ydlidar_ros2_driver_node',
+            name='ydlidar_ros2_driver_node',
+            parameters=[{
+                'port': '/dev/ydlidar',
+                'frame_id': 'laser_frame',
+                'baudrate': 115200,
+                'lidar_type': 1,
+                'device_type': 0,
+                'sample_rate': 4,
+                'resolution_fixed': True,
+                'inverted': False,
+                'auto_reconnect': True,
+                'isSingleChannel': True,
+                'intensity': False,
+                'angle_max': 180.0,
+                'angle_min': -180.0,
+                'range_max': 64.0,
+                'range_min': 0.01,
+                'frequency': 10.0
+            }],
+            output='screen'
+        ),
 
-    # Static TF from base_link to laser
-    tf_node = Node(
-        package='tf2_ros',
-        executable='static_transform_publisher',
-        name='static_tf_pub_laser',
-        arguments=['0','0','0.02','0','0','0','1','base_link','laser_frame']
-    )
+        # Static TF from base_link → laser_frame
+        Node(
+            package='tf2_ros',
+            executable='static_transform_publisher',
+            arguments=['0', '0', '0', '0', '0', '0', 'base_link', 'laser_frame'],
+            output='screen'
+        ),
 
-    # SLAM Toolbox in online async mode
-    slam_node = Node(
-        package='slam_toolbox',
-        executable='async_slam_toolbox_node',
-        name='slam_toolbox',
-        output='screen',
-        parameters=[{
-            'use_sim_time': False,
-            'slam_mode': 'mapping',
-            'scan_topic': '/scan',
-            'map_frame': 'map',
-            'base_frame': 'base_link',
-            'odom_frame': 'odom',
-            'scan_topic': '/scan',
-            'publish_map': True
-        }]
-    )
-    
-    odom_tf_node = Node(
-    package='tf2_ros',
-    executable='static_transform_publisher',
-    name='static_tf_pub_odom',
-    arguments=['0', '0', '0', '0', '0', '0', '1', 'odom', 'base_link']
-)
-
-    return LaunchDescription([lidar_node, tf_node, slam_node,odom_tf_node])
+        # SLAM Toolbox
+        Node(
+            package='slam_toolbox',
+            executable='async_slam_toolbox_node',
+            name='slam_toolbox',
+            parameters=[{
+                'use_sim_time': False,
+                'odom_frame': 'odom',
+                'base_frame': 'base_link',
+                'map_frame': 'map',
+                'scan_topic': '/scan'
+            }],
+            output='screen'
+        )
+    ])

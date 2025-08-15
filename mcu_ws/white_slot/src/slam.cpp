@@ -146,10 +146,10 @@ void setup()
   encoderRight.attachFullQuad(18,19);
   encoderRight.clearCount();
 
-if (!bno.begin()) {
-    Serial.println("Failed to initialize BNO055!");
-    while (1);
-}
+// if (!bno.begin()) {
+//     Serial.println("Failed to initialize BNO055!");
+//     while (1);
+// }
 bno.setExtCrystalUse(true);
 
 pinMode(AIN1, OUTPUT);
@@ -174,7 +174,7 @@ void loop()
     switch (state)
     {
     case WAITING_AGENT:
-        EXECUTE_EVERY_N_MS(500, state = (RMW_RET_OK == rmw_uros_ping_agent(100, 1)) ? AGENT_AVAILABLE : WAITING_AGENT;);
+        EXECUTE_EVERY_N_MS(1000, state = (RMW_RET_OK == rmw_uros_ping_agent(100, 1)) ? AGENT_AVAILABLE : WAITING_AGENT;);
         break;
     case AGENT_AVAILABLE:
         state = (true == createEntities()) ? AGENT_CONNECTED : WAITING_AGENT;
@@ -271,7 +271,7 @@ bool createEntities()
         RCL_MS_TO_NS(control_timeout),
         controlCallback));
     executor = rclc_executor_get_zero_initialized_executor();
-    RCCHECK(rclc_executor_init(&executor, &support.context, 5, &allocator));
+    RCCHECK(rclc_executor_init(&executor, &support.context, 7, &allocator));
 
     RCCHECK(rclc_executor_add_subscription(
         &executor,

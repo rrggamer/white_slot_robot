@@ -25,6 +25,9 @@ setup(
         'console_scripts': [
             'drive_node = white_slot.drive_node:main',
             'joystick_node = white_slot.joystick_node:main',
+            'odom_node = white_slot.odom_node:main',
+            'no_imu_odom_node = white_slot.no_imu_odom_node:main'
+
 
         ],
     },
