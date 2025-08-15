@@ -33,6 +33,13 @@ def generate_launch_description():
         
     )
 
+    fuse_odom_node = Node(
+        package="white_slot",
+        executable="fuse_odom_node",
+        output="screen",
+        
+    )
+
         
     slam_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
@@ -57,7 +64,8 @@ def generate_launch_description():
 
     # ld.add_action(node_microros_1)
     # ld.add_action(odom_node)
-    ld.add_action(no_imu_odom_node)
+    # ld.add_action(no_imu_odom_node)
+    ld.add_action(fuse_odom_node)
     ld.add_action(slam_launch)
     # ld.add_action(slam_launch_ver2)
 

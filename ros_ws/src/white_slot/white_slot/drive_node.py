@@ -46,7 +46,7 @@ class Drive_node(Node):
         self.yaw_setpoint = self.yaw
 
         self.send_robot_speed = self.create_publisher(
-            Twist, "/white_slot/cmd_move/rpm", qos_profile=qos.qos_profile_system_default
+            Twist, "/cmd_vel", qos_profile=qos.qos_profile_system_default
         )
 
         self.create_subscription(

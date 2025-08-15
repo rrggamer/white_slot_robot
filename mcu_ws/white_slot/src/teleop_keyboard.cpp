@@ -11,11 +11,12 @@
 #include <rclc/executor.h>
 
 #include <geometry_msgs/msg/twist.h>
-// #include <Adafruit_BNO055.h>
+#include <Adafruit_BNO055.h>
+#include <Adafruit_Sensor.h>
 #include <ESP32Encoder.h>
 
 // -------- Hardware objects --------
-// Adafruit_BNO055 bno = Adafruit_BNO055(55, 0x29);
+Adafruit_BNO055 bno = Adafruit_BNO055(55, 0x29);
 ESP32Encoder encoderLeft;
 ESP32Encoder encoderRight;
 
@@ -83,14 +84,16 @@ struct timespec getTime();
 void setup() {   
   Serial.begin(115200);
   set_microros_serial_transports(Serial);
-  // Wire.begin(21, 22);
+  Wire.begin(21, 22);
 
   encoderLeft.attachFullQuad(17, 5);
   encoderLeft.clearCount();
   encoderRight.attachFullQuad(18, 19);
   encoderRight.clearCount();
 
-  // bno.setExtCrystalUse(true);
+  bno.begin();
+
+  bno.setExtCrystalUse(true);
 
   pinMode(AIN1, OUTPUT);
   pinMode(AIN2, OUTPUT);
@@ -176,10 +179,10 @@ bool createEntities() {
       ROSIDL_GET_MSG_TYPE_SUPPORT(geometry_msgs, msg, Twist),
       "/white_slot/encoder"));
 
-  // RCCHECK(rclc_publisher_init_best_effort(
-  //     &imu_publisher, &node,
-  //     ROSIDL_GET_MSG_TYPE_SUPPORT(geometry_msgs, msg, Twist),
-  //     "/white_slot/imu"));
+  RCCHECK(rclc_publisher_init_best_effort(
+      &imu_publisher, &node,
+      ROSIDL_GET_MSG_TYPE_SUPPORT(geometry_msgs, msg, Twist),
+      "/white_slot/imu"));
 
   RCCHECK(rclc_subscription_init_default(
       &motor_subscriber, &node,
@@ -269,12 +272,13 @@ void publishData() {
   encoder_msg.linear.y = encoderRight.getCount();
   rcl_publish(&encoder_publisher, &encoder_msg, NULL);
 
+  imu::Vector<3> euler = bno.getVector(Adafruit_BNO055::VECTOR_EULER);
   // sensors_event_t orientationData;
   // bno.getEvent(&orientationData, Adafruit_BNO055::VECTOR_EULER);
-  // imu_msg.angular.z = orientationData.orientation.x; // yaw
+  imu_msg.angular.z = euler.x(); // yaw
   // imu_msg.angular.x = orientationData.orientation.z; // roll
   // imu_msg.angular.y = orientationData.orientation.y; // pitch
-  // rcl_publish(&imu_publisher, &imu_msg, NULL);
+  rcl_publish(&imu_publisher, &imu_msg, NULL);
 }
 
 // =====================================================

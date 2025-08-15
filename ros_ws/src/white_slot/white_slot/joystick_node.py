@@ -43,7 +43,7 @@ class Joystick(Node):
         super().__init__("joystick")
 
         self.pub_move = self.create_publisher(
-            Twist, "/white_slot/cmd_move", qos_profile=qos.qos_profile_system_default
+            Twist, "/cmd_vel", qos_profile=qos.qos_profile_system_default
         )
 
         
@@ -101,8 +101,8 @@ class Joystick(Node):
 
 
 
-        cmd_vel_move.linear.y = float(self.gamepad.ly * self.maxspeed)
-        cmd_vel_move.angular.z = float(self.gamepad.rx * self.maxspeed)
+        cmd_vel_move.linear.x = float(self.gamepad.ly * self.maxspeed)
+        cmd_vel_move.angular.z = float(self.gamepad.rx * self.maxspeed * 3.0)
         
         
         self.pub_move.publish(cmd_vel_move)
