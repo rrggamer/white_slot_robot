@@ -13,6 +13,7 @@ setup(
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
         (os.path.join('share', package_name, 'launch'), glob('launch/*.launch.py')),
+        (os.path.join('share', package_name, 'config'), glob('config/*.yaml')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -27,7 +28,8 @@ setup(
             'joystick_node = white_slot.joystick_node:main',
             'odom_node = white_slot.odom_node:main',
             'no_imu_odom_node = white_slot.no_imu_odom_node:main',
-            'fuse_odom_node = white_slot.fuse_odom:main'
+            'fuse_odom_node = white_slot.fuse_odom:main',
+            'nav_to_cmd_vel = white_slot.nav_to_cmd_vel:main'
 
 
         ],
